@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colégio Progresso</title>
+    <link rel="stylesheet" type="text/css" href="../cssreset.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body style="font-family: 'Roboto', sans-serif; background-color: #e6f7fe;">
+    <header>
+        <!-- Navbar from Bootstrap-->
+        <nav class="navbar navbar-expand-md" style="background-color: #4a6eff; padding: 1rem;" data-bs-theme="dark">
+            <div class="container-fluid" style="color:#ffffff;">
+              <div class="navbar-brand">Colégio Progresso</div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../index.html">Início</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../visitantes/visitantes.html">Visitante</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../alunos/alunos.html">Aluno</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="professores.html">Professor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../administracao/administracao.html">Administração</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    </header>
+
+    <section class="content" style="padding: 1.5rem 1.5rem;">
+        <div class="container">
+            <h2 style="font-size: 2rem;">Área do Professor</h2>
+            <p style="font-size: 1.2rem;">Bem-vindo à sua área pessoal, [Nome do Professor]. Aqui estão as informações mais recentes sobre suas turmas e alunos no Colégio Progresso.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Horários de Aula</h3>
+                    <p>Aqui estão seus horários de aula:</p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Dia da Semana</th>
+                                <th>Horário</th>
+                                <th>Disciplina</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Preencha com os horários das aulas -->
+                            <tr>
+                                <td>Segunda-feira</td>
+                                <td>8:00 - 9:30</td>
+                                <td>Matemática</td>
+                            </tr>
+                            <!-- Adicione mais linhas conforme necessário -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h3>Notas dos Alunos</h3>
+                    <p>Aqui estão as notas de seus alunos:</p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Aluno</th>
+                                <th>Disciplina</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Preencha com as notas dos alunos -->
+                            <tr>
+                                <td>João</td>
+                                <td>Matemática</td>
+                                <td>8.5</td>
+                            </tr>
+                            <!-- Adicione mais linhas conforme necessário -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h3>Recursos Adicionais</h3>
+            <ul>
+                <li><a href="#">Plano de Aula</a> - Crie e gerencie planos de aula para suas disciplinas.</li>
+                <li><a href="#">Recursos de Ensino</a> - Acesse materiais de ensino, apresentações e recursos educacionais.</li>
+                <li><a href="#">Relatório de Desempenho</a> - Visualize o desempenho geral de suas turmas e alunos.</li>
+                <!-- Adicione mais recursos conforme necessário -->
+            </ul>
+        </div>
+    </section>
+
+    <footer style="position:relative; bottom: 0; text-align: center; background-color: #4a6eff; width: 100%; padding: 0.5rem; margin-top: 2rem;">
+        <p>&copy; 2023 Colégio Progresso. Todos os direitos reservados.</p>
+    </footer>
+
+    <!--Bootstrap JavaScript source-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
