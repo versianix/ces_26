@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../cssreset.css">
     <title>Jet & Missile</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        canvas {
-            display: block;
-        }
-    </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <audio src="boom.mp3" id="boom.mp3" preload="auto"></audio>
+    <button id="toggleSoundButton">Som ativo</button>
+    <canvas id="canvas" style="display: block"></canvas>
     <script>
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
 
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = window.innerHeight; 
 
         const airplane = new Image();
         airplane.src = "airplane.png";
@@ -32,6 +25,10 @@
 
         const explosion = new Image();
         explosion.src = "explosion.png";
+
+        const explosionSound = document.getElementById("boom.mp3");
+
+        let soundEnabled = true;
 
         const planeWidth = 100;
         const planeHeight = 100;
@@ -44,6 +41,21 @@
         let missileY = canvas.height - missileHeight;
         let missileSpeed = 5;
         let missileLaunched = false;
+        
+        function updateSoundButtonLabel() {
+            const button = document.getElementById("toggleSoundButton");
+            if (soundEnabled) {
+                button.textContent = "Som ligado";
+            } else {
+                button.textContent = "Som desligado";
+        }
+}
+
+        document.getElementById("toggleSoundButton").addEventListener("click", () => {
+            soundEnabled = !soundEnabled;
+            updateSoundButtonLabel();
+        });
+
 
         canvas.addEventListener("mousemove", (event) => {
             planeX = event.clientX - planeWidth / 2;
@@ -101,6 +113,9 @@
             }
 
             if (explosionFrames > 0) {
+                if(soundEnabled && explosionFrames === explosionDuration) {
+                    explosionSound.play();
+                }
                 ctx.drawImage(explosion, planeX, planeY, planeWidth, planeHeight);
                 explosionFrames--;
             } else {
