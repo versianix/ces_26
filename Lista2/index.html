@@ -8,7 +8,7 @@
 </head>
 <body>
     <audio src="boom.mp3" id="boom.mp3" preload="auto"></audio>
-    <button id="toggleSoundButton">Som ativo</button>
+    <button id="toggleSoundButton" style="position:absolute; left:50%; height:3em;">Som ligado</button>
     <canvas id="canvas" style="display: block"></canvas>
     <script>
         const canvas = document.getElementById("canvas");
@@ -27,7 +27,6 @@
         explosion.src = "explosion.png";
 
         const explosionSound = document.getElementById("boom.mp3");
-
         let soundEnabled = true;
 
         const planeWidth = 100;
@@ -37,8 +36,8 @@
 
         const missileWidth = 80;
         const missileHeight = 70;
-        let missileX = canvas.width - missileWidth;
-        let missileY = canvas.height - missileHeight;
+        let missileX = canvas.width - missileWidth/2;
+        let missileY = canvas.height - missileHeight/2;
         let missileSpeed = 5;
         let missileLaunched = false;
         
@@ -48,8 +47,8 @@
                 button.textContent = "Som ligado";
             } else {
                 button.textContent = "Som desligado";
+            }
         }
-}
 
         document.getElementById("toggleSoundButton").addEventListener("click", () => {
             soundEnabled = !soundEnabled;
@@ -62,10 +61,10 @@
             planeY = event.clientY - planeHeight / 2;
 
             if (!missileLaunched) {
-                // Atualiza a posição do míssil estático para apontar para o avião (cursor do mouse)
-                const angle = Math.atan2(planeY - (missileY + missileHeight / 2), planeX - (missileX + missileWidth / 2));
-                missileX = canvas.width - missileWidth + missileSpeed * Math.cos(angle);
-                missileY = canvas.height - missileHeight + missileSpeed * Math.sin(angle);
+                // Update the static missile angle to point to mouse cursor
+                const angle = Math.atan2(planeY - (missileY - missileHeight / 2), planeX - (missileX - missileWidth / 2));
+                missileX = canvas.width - missileWidth/2 + missileSpeed * Math.cos(angle);
+                missileY = canvas.height - missileHeight/2 + missileSpeed * Math.sin(angle);
             }
         });
 
@@ -123,7 +122,7 @@
             }
 
             if (!missileLaunched) {
-                // Desenha o míssil estático apontando para o avião (cursor do mouse)
+                // Draw the static missile pointing to the cursor
                 ctx.save();
                 ctx.translate(missileStaticX + missileWidth / 2, missileStaticY + missileHeight / 2);
                 ctx.rotate(Math.atan2(planeY - (missileStaticY + missileHeight / 2), planeX - (missileStaticX + missileWidth / 2)) + Math.PI / 2);
